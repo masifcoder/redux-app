@@ -6,15 +6,18 @@ import About from "./pages/About";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Profile from "./pages/dashboard/Profile";
 import Products from "./pages/dashboard/Products";
+import ProtectedRoutes from './components/ProtectedRoutes';
+
 
 function App() {
+ 
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard />} >
+        <Route path="/dashboard" element={<ProtectedRoutes><Dashboard /></ProtectedRoutes>} >
             <Route path='profile' element={<Profile />} />
             <Route path='products' element={<Products />} />
         </Route>

@@ -6,6 +6,8 @@ import About from "./pages/About";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Profile from "./pages/dashboard/Profile";
 import Products from "./pages/dashboard/Products";
+import SecureRoutes from './components/SecureRoutes';
+import { Login } from './pages/Login';
 
 function App() {
 
@@ -14,7 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard />} >
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={ <SecureRoutes><Dashboard /></SecureRoutes>} >
             <Route path='profile' element={<Profile />} />
             <Route path='products' element={<Products />} />
         </Route>
